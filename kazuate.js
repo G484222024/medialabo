@@ -29,16 +29,13 @@ function hantei() {
         console.log("正解です．おめでとう！");
         gameEnded = true;
     } else {
-    if (kaisu >= 4) {
+    if (kaisu >= 3) {
       console.log("まちがい．残念でした答えは " + kotae + " です．");
-      gameEnded = true;
+      gameEnd = true;
     } else if (yoso < kotae) {
       console.log("まちがい．答えはもっと大きいですよ");
     } else {
       console.log("まちがい．答えはもっと小さいですよ");
     }
     } 
-  // 課題3-1: 正解判定する
-  // kotae と yoso が一致するかどうか調べて結果を出力
-  // 課題3-1における出力先はコンソール
 }
