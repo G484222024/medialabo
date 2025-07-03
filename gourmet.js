@@ -24,10 +24,66 @@ console.log("最寄り駅: " + data.results.shop[1].station_name);
 console.log("写真: " + data.results.shop[1].photo.pc.m);
 }
 
-// 課題5-1 の関数 printDom() はここに記述すること
-function printDom(data) {
 
+function printDom(data) {
+    // div#result 要素を作成
+    let resultDiv = document.createElement('div');
+    resultDiv.id = 'result';
+    document.body.insertAdjacentElement('beforeend', resultDiv);
+
+    for (let i = 0; i < 2; i++) {
+        let shop = data.results.shop[i];
+        
+        let title = document.createElement('h2');
+        title.textContent = `${i+1}件目の検索結果`;
+        resultDiv.insertAdjacentElement('beforeend', title);
+    
+        let shopDiv = document.createElement('div');
+        resultDiv.insertAdjacentElement('beforeend', shopDiv);
+        
+        let p = document.createElement('p');
+        p.innerHTML = `<strong>店名:</strong> ${shop.name}`;
+        shopDiv.insertAdjacentElement('beforeend', p);
+        
+        p = document.createElement('p');
+        p.innerHTML = `<strong>住所:</strong> ${shop.address}`;
+        shopDiv.insertAdjacentElement('beforeend', p);
+        
+        p = document.createElement('p');
+        p.innerHTML = `<strong>予算:</strong> ${shop.budget.name}`;
+        shopDiv.insertAdjacentElement('beforeend', p);
+        
+        p = document.createElement('p');
+        p.innerHTML = `<strong>キャッチコピー:</strong> ${shop.catch}`;
+        shopDiv.insertAdjacentElement('beforeend', p);
+        
+        p = document.createElement('p');
+        p.innerHTML = `<strong>ジャンル:</strong> ${shop.genre.name}`;
+        shopDiv.insertAdjacentElement('beforeend', p);
+        
+        p = document.createElement('p');
+        p.innerHTML = `<strong>営業日時:</strong> ${shop.open}`;
+        shopDiv.insertAdjacentElement('beforeend', p);
+        
+        p = document.createElement('p');
+        p.innerHTML = `<strong>アクセス:</strong> ${shop.access}`;
+        shopDiv.insertAdjacentElement('beforeend', p);
+        
+        p = document.createElement('p');
+        p.innerHTML = `<strong>最寄り駅:</strong> ${shop.station_name}`;
+        shopDiv.insertAdjacentElement('beforeend', p);
+        
+        p = document.createElement('p');
+        p.innerHTML = '<strong>写真:</strong>';
+        shopDiv.insertAdjacentElement('beforeend', p);
+        
+        let img = document.createElement('img');
+        img.src = shop.photo.pc.m;
+        img.alt = shop.name;
+        shopDiv.insertAdjacentElement('beforeend', img);
+    }
 }
+
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
 
