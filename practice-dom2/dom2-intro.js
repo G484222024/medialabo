@@ -1,4 +1,6 @@
 function changeDom(){
+    let l = document.createElement('li');
+    let u = document.querySelector('ul#kazoeuta');
     u.insertAdjacentElement('beforeend',l);
     l.textContent = 'ヨット';
 
