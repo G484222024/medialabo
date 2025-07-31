@@ -35,7 +35,7 @@ function printDom(data) {
     resultDiv.id = 'result';
     document.body.insertAdjacentElement('beforeend', resultDiv);
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < data.results.shop.length; i++) {
         let shop = data.results.shop[i];
         
         let title = document.createElement('h2');
